@@ -8,9 +8,9 @@ import (
 )
 
 // Function to handle connection and sort client options as needed
-func handleConnection(conn net.Conn, logger *slog.Logger) error {
+func handleConnection(conn net.Conn, logger *slog.Logger, keyString string) error {
 	//Generate key from keystring
-	key := []byte(KEY_STRING)
+	key := []byte(keyString)
 
 	//Log to console that connection has been made
 	logger.Info(
