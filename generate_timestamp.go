@@ -6,7 +6,7 @@ import (
 )
 
 // Function to generate a timestamp
-func generate_timestamp() string {
+func GenerateTimestamp() string {
 	//Date and time
 	var currentTime time.Time = time.Now()
 	var timestamp string = fmt.Sprintf("%s %d, %d at %d:%d:%d",

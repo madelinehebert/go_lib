@@ -10,7 +10,7 @@ import (
 const letterBytes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 // Function to generate a unique uuid for each document
-func generate_uuid(n string) string {
+func GenerateUUID(n string) string {
 
 	//Convert n to integer
 	n_int, err := strconv.Atoi(n)

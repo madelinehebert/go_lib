@@ -6,7 +6,7 @@ import (
 )
 
 // Function to decrypt
-func decrypt_text(key []byte, cypherText []byte) string {
+func DecryptText(key []byte, cypherText []byte) string {
 	//generate new aes cypher
 	cypher, err := aes.NewCipher(key)
 	if err != nil {

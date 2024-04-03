@@ -8,7 +8,7 @@ import (
 )
 
 // Function to encrypt data
-func encrypt_text(key []byte, text []byte) []byte {
+func EncryptText(key []byte, text []byte) []byte {
 	//generate new aes cypher
 	cypher, err := aes.NewCipher(key)
 	if err != nil {
