@@ -1,4 +1,4 @@
-package MDH
+package go_lib
 
 import (
 	"fmt"
