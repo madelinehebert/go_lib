@@ -21,9 +21,11 @@ func DecryptText(key []byte, cypherText []byte) string {
 
 	//Grab nonce size
 	nonceSize := gcm.NonceSize()
-	if len(cypherText) < nonceSize {
-		panic(err)
-	}
+	/*
+		if len(cypherText) < nonceSize {
+			panic(err)
+		}
+	*/
 
 	//do a bunch of fancy stuff
 	nonce, cypherText := cypherText[:nonceSize], cypherText[nonceSize:]
