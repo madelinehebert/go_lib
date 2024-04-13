@@ -21,13 +21,14 @@ func DecompressTraffic(conn tls.Conn) []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
-	zr.Close()
 
 	//Write data to file
 	_, err = io.Copy(&ibuf, zr)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	zr.Close()
 
 	return ibuf.Bytes()
 }
