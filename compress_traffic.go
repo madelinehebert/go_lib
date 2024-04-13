@@ -32,7 +32,7 @@ func CompressTraffic(filepath string) []byte {
 
 	//Compress the input data
 	//zw := gzip.NewWriter(&obuf)
-	zw := zstd.NewWriter(&obuf)
+	zw, err := zstd.NewWriter(&obuf)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
