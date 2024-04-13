@@ -2,10 +2,12 @@ package go_lib
 
 import (
 	"bytes"
-	"compress/gzip"
+	//"compress/gzip"
 	"crypto/tls"
 	"io"
 	"log"
+
+	"github.com/klauspost/compress/zstd"
 )
 
 // Function to decompress traffic
@@ -14,7 +16,8 @@ func DecompressTraffic(conn tls.Conn) []byte {
 	var ibuf bytes.Buffer
 
 	//Make a new gzip reader
-	zr, err := gzip.NewReader(&conn)
+	//zr, err := gzip.NewReader(&conn)
+	zr, err := zstd.NewReader(&conn)
 	if err != nil {
 		log.Fatal(err)
 	}
