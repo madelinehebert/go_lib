@@ -3,15 +3,12 @@ package go_lib
 import (
 	"bufio"
 	"bytes"
-
-	//"compress/gzip"
+	"compress/gzip"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"strings"
-
-	"github.com/klauspost/compress/zstd"
 )
 
 // Compress network traffic
@@ -31,8 +28,7 @@ func CompressTraffic(filepath string) []byte {
 	r := bufio.NewReader(file)
 
 	//Compress the input data
-	//zw := gzip.NewWriter(&obuf)
-	zw, err := zstd.NewWriter(&obuf)
+	zw := gzip.NewWriter(&obuf)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
