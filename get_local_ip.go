@@ -1,4 +1,4 @@
-package
+package go_lib
 
 import (
 	"fmt"
