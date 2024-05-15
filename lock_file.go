@@ -8,7 +8,7 @@ import (
 	"github.com/madelinehebert/go_lib"
 )
 
-func lock_file(file *os.File) error {
+func LockFile(file *os.File) error {
 	//Set a lock
 	for {
 		//Attempt to set a lock on the file; if this fails, wait for a random amount of
