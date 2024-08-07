@@ -11,7 +11,7 @@ import (
    
    Negative return values are errors.
    -1 is an inability to open a file for reading.
-   -2 is an inability to call os.Stat() on a file
+   -2 is an inability to call os.Stat() on a file.
 */
 
 
