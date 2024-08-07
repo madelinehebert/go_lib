@@ -1,4 +1,4 @@
-package go_lib
+package main
 
 import (
 	"fmt"
@@ -6,15 +6,19 @@ import (
 	"net"
 )
 
-// Get preferred outbound ip of this machine
+/* Get the outbound ip of this machine. */
 func GetLocalIP() string {
-	conn, err := net.Dial("udp", "8.8.8.8:80")
-	if err != nil {
-		log.Fatal(err)
+
+	/* Dial Google's public DNS server. */
+	if conn, err := net.Dial("udp", "8.8.8.8:80"); err != nil {
+		log.Println(err)
+		return "BADDIAL"
+	} else {
+		/* Defer closing the connection. */
+		defer conn.Close()
+
+		/* Return outbound IP address. */
+		return fmt.Sprint(conn.LocalAddr().(*net.UDPAddr).IP)
 	}
-	defer conn.Close()
 
-	localAddr := conn.LocalAddr().(*net.UDPAddr)
-
-	return fmt.Sprint(localAddr.IP)
 }
