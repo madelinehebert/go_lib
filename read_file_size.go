@@ -1,4 +1,4 @@
-package go_lib
+package main
 
 import (
 	"log"
@@ -7,18 +7,19 @@ import (
 
 func ReadFileSize(filepath string) int {
 	//Read in file's size
+
 	/* Open a file for read access */
-	file, err := os.Open(filepath)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	/* find the file on the system, find the amount of bytes it occupies */
-	file_stats, err := file.Stat()
-	if err != nil {
+	if file, err := os.Open(filepath); err != nil {
 		log.Println(err)
-	}
-	file.Close()
+		return -1
+	} else {
+		defer file.Close()
+		if file_stats, err := file.Stat(); err != nil {
+                	log.Println(err)
+			return -1
+        	} else {
+			return int(file_stats.Size())
+		}
 
-	return int(file_stats.Size())
+	}
 }
