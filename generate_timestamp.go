@@ -1,15 +1,17 @@
-package go_lib
+package main
 
 import (
 	"fmt"
 	"time"
 )
 
-// Function to generate a timestamp
+/* GenerateTimestamp is a function to generate a timestamp, mimicking the format of Google's Firestore timestamps */
 func GenerateTimestamp() string {
-	//Date and time
+	/* Get Date and time */
 	var currentTime time.Time = time.Now()
-	var timestamp string = fmt.Sprintf("%s %d, %d at %d:%d:%d",
+
+	/* Return customized timestamp */
+	return fmt.Sprintf("%s %d, %d at %d:%d:%d",
 		currentTime.Month(),
 		currentTime.Day(),
 		currentTime.Year(),
@@ -17,7 +19,4 @@ func GenerateTimestamp() string {
 		currentTime.Minute(),
 		currentTime.Second(),
 	)
-
-	//Return
-	return timestamp
 }
