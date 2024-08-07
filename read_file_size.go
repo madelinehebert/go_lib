@@ -30,7 +30,7 @@ func ReadFileSize(filepath string) int {
 		/* Call os.Stat() on file in order to retrieve file size. */
 		if file_stats, err := file.Stat(); err != nil {
                 	log.Println(err)
-			return -1
+			return -2
         	} else {
 			/* Allow defer to handle file closing and return file size to calling function. */
 			return int(file_stats.Size())
